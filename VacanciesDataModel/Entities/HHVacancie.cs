@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations.Schema;
 using System.Text;
 
 namespace Vacancies.DataModel.Entities
@@ -9,7 +10,6 @@ namespace Vacancies.DataModel.Entities
         public string id { get; set; }
         public string name { get; set; }
     }
-
 
 
     public class Site
@@ -47,46 +47,57 @@ namespace Vacancies.DataModel.Entities
 
 
 
-    public class VacancieRootObject
+    public class VacancieFromApiHH
     {
         public string id { get; set; }
         public bool? premium { get; set; }
         public BillingType billing_type { get; set; }
+        [NotMapped]
         public List<object> relations { get; set; }
         public string name { get; set; }
+        [NotMapped]
         public object insider_interview { get; set; }
         public bool? response_letter_required { get; set; }
         public Area area { get; set; }
         public Salary salary { get; set; }
         public Type type { get; set; }
-        public object address { get; set; }
+        public Address address { get; set; }
         public bool? allow_messages { get; set; }
         public Site site { get; set; }
         public Experience experience { get; set; }
         public Schedule schedule { get; set; }
         public Employment employment { get; set; }
-        public object department { get; set; }
-        public object contacts { get; set; }
+        public Department department { get; set; }
+        public Contacts contacts { get; set; }
         public string description { get; set; }
+        [NotMapped]
         public object branded_description { get; set; }
+        [NotMapped]
         public List<object> key_skills { get; set; }
         public bool? accept_handicapped { get; set; }
         public bool? accept_kids { get; set; }
         public bool? archived { get; set; }
+        [NotMapped]
         public object response_url { get; set; }
+        [NotMapped]
         public List<Specialization> specializations { get; set; }
+        [NotMapped]
         public object code { get; set; }
         public bool? hidden { get; set; }
         public bool? quick_responses_allowed { get; set; }
+        [NotMapped]
         public List<object> driver_license_types { get; set; }
         public bool? accept_incomplete_resumes { get; set; }
         public Employer employer { get; set; }
         public DateTime published_at { get; set; }
         public DateTime created_at { get; set; }
+        [NotMapped]
         public object negotiations_url { get; set; }
+        [NotMapped]
         public object suitable_resumes_url { get; set; }
         public string apply_alternate_url { get; set; }
         public bool? has_test { get; set; }
+        [NotMapped]
         public object test { get; set; }
         public string alternate_url { get; set; }
     }

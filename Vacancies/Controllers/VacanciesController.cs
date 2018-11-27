@@ -34,5 +34,50 @@ namespace Vacancies.Controllers
                 return BadRequest(ex.Message);
             }
         }
+
+        [HttpPost("/api/vacanciesDB")]
+        public IActionResult GetVacanciesFromDB([FromBody] SearchVacanciesViewModel searchmodel)
+        {
+            try
+            {
+                List<VacanciesViewModel> model = _parsingVacanciesService.GetVacanciesViewModelFromDB(50, searchmodel);
+                return Ok(model);
+            }
+            catch (Exception ex)
+            {
+                return BadRequest(ex.Message);
+            }
+        }
+        [HttpPost("/api/save")]
+        public IActionResult SaveVacancies([FromBody] IdsWrapper ids)
+        {
+            try
+            {
+                 _parsingVacanciesService.SaveVacanciesToDB(ids.Ids);
+                return Ok();
+            }
+            catch (Exception ex)
+            {
+                return BadRequest(ex.Message);
+            }
+        }
+        [HttpPost("/api/delete/{id}")]
+        public IActionResult DeleteVacancie(int id)
+        {
+            try
+            {
+                _parsingVacanciesService.DeleteVacancieFromDB(id);
+                return Ok();
+            }
+            catch (Exception ex)
+            {
+                return BadRequest(ex.Message);
+            }
+        }
+    }
+    public class IdsWrapper
+    {
+
+       public List<string> Ids { get; set; }
     }
 }

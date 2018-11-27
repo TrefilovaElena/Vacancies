@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations.Schema;
 using System.Text;
 
 namespace Vacancies.DataModel.Entities
@@ -46,11 +47,14 @@ namespace Vacancies.DataModel.Entities
         public string city { get; set; }
         public string street { get; set; }
         public string building { get; set; }
+        [NotMapped]
         public object description { get; set; }
         public double? lat { get; set; }
         public double? lng { get; set; }
         public string raw { get; set; }
+        [NotMapped]
         public Metro metro { get; set; }
+        [NotMapped]
         public List<object> metro_stations { get; set; }
         public string id { get; set; }
     }
@@ -68,6 +72,7 @@ namespace Vacancies.DataModel.Entities
         public string name { get; set; }
         public string url { get; set; }
         public string alternate_url { get; set; }
+        [NotMapped]
         public LogoUrls logo_urls { get; set; }
         public string vacancies_url { get; set; }
         public bool? trusted { get; set; }
