@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using Vacancies.DataModel.Entities;
+using Vacancies.ViewModels;
 
 namespace Vacancies
 {
@@ -37,6 +38,8 @@ namespace Vacancies
              CreateMap<Item, Db_Item>();
              CreateMap<Db_Item, Item>();
              */
+            CreateMap<VacanciesViewModel, Vacancie>();
+            CreateMap<Vacancie, VacanciesViewModel>();
 
         }
     }

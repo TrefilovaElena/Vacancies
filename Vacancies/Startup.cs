@@ -37,16 +37,18 @@ namespace Vacancies
             string connectionString = Configuration.GetConnectionString("MyDatabase");
             services.AddDbContext<VacanciesContext>(options => options.UseSqlServer(connectionString));
             services.AddMvc();
+
             // configure Mapping
-            var mappingConfig = new MapperConfiguration(mc =>
-            {
-                mc.AddProfile(new MappingProfile());
-            });
-            IMapper mapper = mappingConfig.CreateMapper();
-            services.AddSingleton(mapper);
+               var mappingConfig = new MapperConfiguration(mc =>
+                {
+                    mc.AddProfile(new MappingProfile());
+                });
+                IMapper mapper = mappingConfig.CreateMapper();
+                services.AddSingleton(mapper); 
 
             // configure Services
-             services.AddScoped<IParsingVacanciesService, ParsingVacanciesService>();
+            services.AddScoped<IVacanciesDBService, VacanciesDBService>();
+            services.AddScoped<IVacanciesHHService, VacanciesHHService>();
 
         }
 

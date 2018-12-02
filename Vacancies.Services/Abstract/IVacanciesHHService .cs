@@ -5,11 +5,10 @@ using Vacancies.ViewModels;
 
 namespace Vacancies.Services
 {
-   public interface IParsingVacanciesService
+   public interface IVacanciesHHService
     {
         List<VacanciesViewModel> GetVacanciesViewModel(int amount, SearchVacanciesViewModel searchParameters);
-        List<VacanciesViewModel> GetVacanciesViewModelFromDB(int amount, SearchVacanciesViewModel searchParameters);
-        void SaveVacanciesToDB(List<string> ids);
-        void DeleteVacancieFromDB(int id);
+        IdsWrapper SaveVacanciesToDB(List<string> ids);
+
     }
 }

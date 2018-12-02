@@ -9,6 +9,7 @@
   </ItemGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\Vacancies.Common\Vacancies.Common.csproj" />
     <ProjectReference Include="..\Vacancies.DataAccess\Vacancies.DataAccess.csproj" />
     <ProjectReference Include="..\Vacancies.ViewModels\Vacancies.ViewModels.csproj" />
     <ProjectReference Include="..\VacanciesDataModel\Vacancies.DataModel.csproj" />

@@ -3,15 +3,20 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 15
 VisualStudioVersion = 15.0.27130.2020
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Vacancies", "Vacancies\Vacancies.csproj", "{95CDD232-3835-49BC-8408-25A5ACFAEDE3}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Vacancies", "Vacancies\Vacancies.csproj", "{95CDD232-3835-49BC-8408-25A5ACFAEDE3}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Vacancies.DataModel", "VacanciesDataModel\Vacancies.DataModel.csproj", "{54F44099-D5ED-42E4-AF27-054EC2FDD22F}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Vacancies.DataModel", "VacanciesDataModel\Vacancies.DataModel.csproj", "{54F44099-D5ED-42E4-AF27-054EC2FDD22F}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Vacancies.DataAccess", "Vacancies.DataAccess\Vacancies.DataAccess.csproj", "{D382A22F-B464-45AF-8EFA-B2F079B419C1}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Vacancies.DataAccess", "Vacancies.DataAccess\Vacancies.DataAccess.csproj", "{D382A22F-B464-45AF-8EFA-B2F079B419C1}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Vacancies.Services", "Vacancies.Services\Vacancies.Services.csproj", "{7670BA4E-78B4-4B61-A33C-30A47EAE6511}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Vacancies.Services", "Vacancies.Services\Vacancies.Services.csproj", "{7670BA4E-78B4-4B61-A33C-30A47EAE6511}"
+	ProjectSection(ProjectDependencies) = postProject
+		{FFA308FF-3D9F-469A-9767-414294EE97A6} = {FFA308FF-3D9F-469A-9767-414294EE97A6}
+	EndProjectSection
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Vacancies.ViewModels", "Vacancies.ViewModels\Vacancies.ViewModels.csproj", "{FA6AAB96-657A-4659-A59F-9622CA5ADECA}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Vacancies.ViewModels", "Vacancies.ViewModels\Vacancies.ViewModels.csproj", "{FA6AAB96-657A-4659-A59F-9622CA5ADECA}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Vacancies.Common", "Vacancies.Common\Vacancies.Common.csproj", "{FFA308FF-3D9F-469A-9767-414294EE97A6}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -39,6 +44,10 @@ Global
 		{FA6AAB96-657A-4659-A59F-9622CA5ADECA}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{FA6AAB96-657A-4659-A59F-9622CA5ADECA}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{FA6AAB96-657A-4659-A59F-9622CA5ADECA}.Release|Any CPU.Build.0 = Release|Any CPU
+		{FFA308FF-3D9F-469A-9767-414294EE97A6}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{FFA308FF-3D9F-469A-9767-414294EE97A6}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{FFA308FF-3D9F-469A-9767-414294EE97A6}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{FFA308FF-3D9F-469A-9767-414294EE97A6}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

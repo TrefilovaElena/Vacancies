@@ -1,6 +1,6 @@
 ﻿$(document).ready(function () {
     //GetVacancies();
-    $("#saveBtn").css("display", "none");
+    $('.searchbuttons').css("display", "block");
 });
 // создание строки для таблицы
 var rowHH = function (vacancie, index) {
@@ -38,11 +38,13 @@ $(function () {
     $("body").on("click", ".deleteLink", function () {
        // $(this).parent().parent().remove();
         $.ajax({
-            url: '/api/delete/' + $(this).data("id"),
-            type: 'Post',
+            url: '/api/VacanciesDB/' + $(this).data("id"),
+            type: 'Delete',
+            error: function (jqxhr) {
+                alert(jqxhr.responseText);
+            },
             complete: function () { GetVacanciesDB(); },
-            success: function (data) {
-              
+            success: function (data) {              
                 alert("Запись удалена");
             }
         });
@@ -72,28 +74,26 @@ $(function () {
         e.preventDefault();
         var idArray = new Array();
         $("table tbody tr").each(function (index, element) {  
-            idArray[index] = $(this).data("rowid");            
-        }); 
- 
+           idArray[index] = $(this).data("rowid");            
+       }); 
+
         $.ajax({
-            url: '/api/save',
-            type: 'POST',
+            url: '/api/VacanciesHH/',
+            type: 'Patch',
             traditional: true,
             contentType: 'application/json',
             beforeSend: function () { BlockPage(); },
-            complete: function () { UnBlockPage(); GetVacanciesDB();},
+            complete: function () { UnBlockPage();},
             dataType: 'json',
             data: JSON.stringify({ ids: idArray }),
             success: function (data) {
-                var rows = "";
-                $.each(data, function (index, tr) {
-
-                    rows += rowDB(tr, index + 1);
-                })
-                $("table tbody").append(rows);
-                alert("Данные сохранены");
-                
-            }
+                alert('В БД сохранено записей:' + data.ids.length);
+                GetVacanciesDB();
+            },
+            error: function (jqxhr) {
+                alert('Ошибка.' + jqxhr.responseText);
+            },
+           
         });
     });
 });
@@ -105,16 +105,14 @@ function GetVacanciesHH() {
 
     
     $.ajax({
-        url: '/api/vacancies',
-        type: 'POST',
+        url: '/api/VacanciesHH/?searchText=' + document.getElementById("searchText").value,
+        type: 'Get',
         contentType: "application/json",
         dataType: 'json',
         beforeSend: function () { BlockPage(); },
-        data: JSON.stringify({
-            grant_type: 'searchText',
-             searchText: document.getElementById("searchText").value
-        }),
-        complete: function () { UnBlockPage();},
+        complete: function () { UnBlockPage(); },
+        error: function (jqxhr) {
+            alert(jqxhr.responseText); },
         success: function (data) {
             var rows = "";
             $.each(data, function (index, tr) {
@@ -134,18 +132,16 @@ function GetVacanciesDB() {
 
     $("table tbody").find("tr").remove();
 
-
     $.ajax({
-        url: '/api/vacanciesDB',
-        type: 'POST',
+        url: '/api/VacanciesDB/?searchText=' + document.getElementById("searchText").value,
+        type: 'Get',
         contentType: "application/json",
         dataType: 'json',
-        beforeSend: function () { BlockPage(); },
-        data: JSON.stringify({
-            grant_type: 'searchText',
-            searchText: document.getElementById("searchText").value
-        }),
+        beforeSend: function () { BlockPage(); }, 
         complete: function () { UnBlockPage(); },
+        error: function (jqxhr) {
+            alert(jqxhr.responseText);
+        },
         success: function (data) {
             var rows = "";
             $.each(data, function (index, tr) {
